@@ -1,3 +1,52 @@
+:root {
+    --bgGreen: #839683;
+    --AccentGreen: #233323;
+    --AccentOrange: #bf7934;
+    --DarkOrange: #5c4a38;
+    --white: #ffffff;
+}
+
 html {
-    background-color: #889988;
+    background: var(--bgGreen);
+    margin : -1%;
+
+    overflow-x: hidden;
+}
+
+#cardID{
+    background: var(--white);
+
+    width: 30vw;
+    height: 45vw;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px 1px var(--AccentGreen);
+
+    vertical-align: top;
+
+    margin-left: 12.5vw;
+}
+#bioCardID{
+    display: inline-block;
+    border-radius: 5px;
+    padding: 5px 30px;
+
+    vertical-align: bottom;
+}
+#bioCardID div{
+    color: var(--white);
+}
+
+.title{
+    color: var(--DarkOrange);
+
+}
+.title h1{
+    text-align: center;
+}
+
+.imgContainer{
+    width: 90%;
+    border-radius: 10px;
+    margin: auto;
 }
