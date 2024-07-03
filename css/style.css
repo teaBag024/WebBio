@@ -65,6 +65,10 @@ span{
 #navID a:hover{    
     color: var(--AccentOrange);
 }
+.navItem{
+    color: var(--DarkOrange);
+}
+
 
 .title{
     color: var(--DarkOrange);
@@ -106,4 +110,7 @@ span{
     padding: 10px;
     color: var(--DarkOrange);
     text-decoration: none;
+}
+.solidCard div a:hover{    
+    color: var(--AccentOrange);
 }
