@@ -2,9 +2,17 @@
     --bgGreen: #94a194;
     --AccentGreen: #233323;
     --AccentOrange: #bf7934;
+    --LightOrange: #e6b789;
     --DarkOrange: #5c4a38;
     --white: #f9faf7;
 }
+::selection{
+    color: var(--AccentGreen);
+    background: var(--LightOrange);
+    
+    text-shadow: none;
+}
+
 
 body {
     background: var(--bgGreen);
@@ -12,13 +20,16 @@ body {
 
     overflow-x: hidden;
 }
+span{
+    padding-left: 20px;
+}
 
 
 #startCardsID{
     margin-bottom: 10vh;
 }
 
-#cardID{
+/* #cardID{
     background: var(--white);
 
     display: inline-block;
@@ -39,19 +50,7 @@ body {
 
 #cardID div a:hover{
     color: var(--AccentOrange);
-}
-
-
-#bioCardID{
-    display: inline-block;
-    border-radius: 5px;
-    padding: 5px 30px;
-
-    vertical-align: bottom;
-}
-#bioCardID div{
-    color: var(--white);
-}
+} */
 
 #navID{
     background: var(--white);
@@ -67,9 +66,6 @@ body {
     color: var(--AccentOrange);
 }
 
-
-
-
 .title{
     color: var(--DarkOrange);
 
@@ -82,4 +78,32 @@ body {
     width: 90%;
     border-radius: 10px;
     margin: auto;
+}
+
+.cardText{
+    display: inline-block;
+    padding: 5px 30px;
+
+    vertical-align: bottom;
+}
+.sectionTitle, .cardText div{    
+    color: var(--white);    
+    text-shadow: 1px 1px 2px var(--AccentGreen);
+}
+
+.solidCard{
+    background: var(--white);
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px 1px var(--AccentGreen);
+
+    vertical-align: top;
+}
+.solidCard div{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.solidCard div a{
+    padding: 10px;
+    color: var(--DarkOrange);
+    text-decoration: none;
 }
