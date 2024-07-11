@@ -1,164 +1,328 @@
 <html>
-    <head>
-        <title>Hello World</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
-        
-        <link rel = "stylesheet" type = "text/css" href="css/style.css">
-        
-       
-    </head>
-    <body>
-        <!--Card-->
-        <div class = "container" id = "startCardsID">
-            <div class = "row">
-                <div class = "col-1"></div>
-                <div class = "solidCard col-4" id = "cardID">
-                    <div class = "imgContainer">              
-                        <img src = "img/sittingMe.jpg" width = "100%">
-                    </div>
-                    <div class = "title">
-                        <h1>Lilian Zeng</h1>
-                    </div>
-                    <div>                    
-                        <a class="fab fa-2xl fa-github" href = "https://github.com/teaBag024"></a>
-                        <a class="fa fa-2xl fa-envelope" href = "mailto:lxz230006@utdallas.edu"></a>
-                        <a class="fab fa-2xl fa-instagram" href = "https://www.instagram.com/lilac_a_doodle?igsh=Y2IzeXM3end5eGZl"></a>
-                        <a class="fab fa-2xl fa-linkedin-square" href = "https://www.linkedin.com/in/lilian-zeng-b10b5a316/"></a>
-                    </div>
-                    
+
+<head>
+    <title>Hello World</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script> -->
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script> -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+    <script>
+        var carouselWidth = $(".carousel-inner").scrollWidth;
+        var cardWidth = $(".carousel-item").width();
+        var scrollPosition = 0;
+
+        $("carousel-control-next").on("click", function () {
+            console.log("next");
+            if (scrollPosition < (carouselWidth - (cardWidth * 4))) {
+                scrollPosition += cardWidth;
+                $(".carousel-inner").animate({ scrollLeft: scrollPosition }, 600);
+            }
+        });
+        $("carousel-control-prev").on("click", function () {
+            if (scrollPosition > 0) {
+                scrollPosition -= cardWidth;
+                $(".carousel-inner").animate({ scrollLeft: scrollPosition }, 600);
+            }
+        });
+
+    </script>
+
+
+</head>
+
+<body>
+    <!--Card-->
+    <div class="container" id="startCardsID">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="solidCard col-4" id="cardID">
+                <div class="imgContainer">
+                    <img src="img/sittingMe.jpg" width="100%">
                 </div>
-                
-                <div class = "cardText col-6 align-self-end" id = "bioCardID">
-                    <div class = "title"><h2>Bio</h2></div>
-                    <div>
-                        I am an undergrad at the University of Texas at Dallas studying Computer Science.<br>
-                        I enjoy coding. I hope to apply my passion to Research in Machine learning and Cyber Security.
-                        <br><br>
+                <div class="title">
+                    <h1>Lilian Zeng</h1>
+                </div>
+                <div>
+                    <a class="fab fa-2xl fa-github" href="https://github.com/teaBag024"></a>
+                    <a class="fa fa-2xl fa-envelope" href="mailto:lxz230006@utdallas.edu"></a>
+                    <a class="fab fa-2xl fa-instagram"
+                        href="https://www.instagram.com/lilac_a_doodle?igsh=Y2IzeXM3end5eGZl"></a>
+                    <a class="fab fa-2xl fa-linkedin-square"
+                        href="https://www.linkedin.com/in/lilian-zeng-b10b5a316/"></a>
+                </div>
+
+            </div>
+
+            <div class="cardText col-6 align-self-end" id="bioCardID">
+                <div class="title">
+                    <h2>Bio</h2>
+                </div>
+                <div>
+                    I am an undergrad at the University of Texas at Dallas studying Computer Science.<br>
+                    I enjoy coding. I hope to apply my passion to Research in Machine learning and Cyber Security.
+                    <br><br>
 
 
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+
+    <div class="container" id="navID">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navItem navbar-brand" href="#startCardsID">About Me</a>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="navItem nav-link" aria-current="page" href="#educID">Education</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="navItem nav-link" href="#wExpID">Work Experience</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="navItem nav-link" href="#">Projects</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>                
-                <div class = "col-1"></div>
+                </nav>
+
+            </div>
+            <div class="col-1"></div>
+
+        </div>
+    </div>
+
+
+    <!--Info-->
+    <br><br><br>
+
+
+
+    <div id="educID"></div>
+    <br><br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="sectionTitle title col">
+                <h2>Education</h2>
             </div>
         </div>
+        <div class="row">
 
-        <div class = "container" id = "navID">
-            <div class = "row">
-                <div class = "col-1"></div>
-                <div class = "col-10" >
-                    <nav class="navbar sticky-top navbar-expand navbar-light bg-light">
-                        <div class="container-fluid">
-                            <a class="navItem navbar-brand" href="#startCardsID">About Me</a>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="navItem nav-link" aria-current="page" href="#educID">Education</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="navItem nav-link" href="#wExpID">Work Experience</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="navItem nav-link" href="#">Projects</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                    
-                </div>                
-                <div class = "col-1"></div>
-            
+
+            <div class="col-1"></div>
+            <div class="cardText col-2">
+                <div><!--Text :) -->>> </div>
             </div>
-        </div>
-
-
-        <!--Info-->
-        <br><br><br>
-        
-        
-        
-        <div id = "educID" ></div>
-        <br><br><br>
-
-        <div class = "container">
-            <div class = "row">
-                <div class = "col-1"></div>
-                <div class = "sectionTitle title col"><h2>Education</h2></div>
-            </div>
-            <div class = "row">
-                
-                               
-                <div class = "col-1"></div>
-                <div class = "cardText col-2">
-                    <div><!--Text :) -->>>                    </div>
-                </div>
-                <div class = "col-8">
-                    <div class = "row">
-                        <div class = "col-3">
-                            <br>
-                            <img src = "img/utdLogo.png" width = "100%">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-3">
+                        <br>
+                        <img src="img/utdLogo.png" width="100%">
+                    </div>
+                    <div class="cardText col-9">
+                        <div class="title">
+                            <h5>University of Texas at Dallas</h5>
                         </div>
-                        <div class = "cardText col-9">
-                            <div class = "title"><h5>University of Texas at Dallas</h5></div>
                         <div>
                             Class of 2028 <i>(Incoming)</i>
                             <ul>
                                 <li>Collegium V Scholar</li>
                                 <li>National Merit Scholar</li>
                             </ul>
-                        
-                        </div>
 
                         </div>
+
                     </div>
-                    <br>
-                    <div class = "row">
-
-                        <div class = "col-3">
-                            <br>
-                            <img src = "img/deastLogo.png" width = "95%">
-                        </div>
-                        <div class = "cardText col-9">
-                            <div class = "title"><h5>Downingtown High School East Campus</h5></div>
-                            <div>
-                                Class of 2024 <i>(Completed)</i> <br>
-                                <small><small>GPA: 4.4234 <span></span>SAT: 1560</small></small>
-                            </div>
-                            <br>
-                            <div class = "row">
-                                <div class = "col-4">Awards:
-                                    <small><small><ul>
-                                        <li>National Merit Finalist</li>
-                                        <li>AP Scholar with Distinction</li>
-                                    </ul></small></small>
-                                </div>
-                                
-                                <div class = "col-8">Related Course Work:
-                                    <small><small><ul>
-                                        <li>AP Computer Science A</li>
-                                        <li>AP Computer Science Principles</li>
-                                        <li>Honors Data Structures & Game Design</li>
-                                        <li>Web and Design</li>
-                                    </ul></small></small>
-                                
-                                </div>
-                                
-
-                                
-                            </div>
-
-                        </div>
-                    </div>
-
                 </div>
-                <div class = "col-1"></div>
-                
+                <br>
+                <div class="row">
+
+                    <div class="col-3">
+                        <br>
+                        <img src="img/deastLogo.png" width="95%">
+                    </div>
+                    <div class="cardText col-9">
+                        <div class="title">
+                            <h5>Downingtown High School East Campus</h5>
+                        </div>
+                        <div>
+                            Class of 2024 <i>(Completed)</i> <br>
+                            <small><small>GPA: 4.4234 <span></span>SAT: 1560</small></small>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-4">Awards:
+                                <small><small>
+                                        <ul>
+                                            <li>National Merit Finalist</li>
+                                            <li>AP Scholar with Distinction</li>
+                                        </ul>
+                                    </small></small>
+                            </div>
+
+                            <div class="col-8">Related Course Work:
+                                <small><small>
+                                        <ul>
+                                            <li>AP Computer Science A</li>
+                                            <li>AP Computer Science Principles</li>
+                                            <li>Honors Data Structures & Game Design</li>
+                                            <li>Web and Design</li>
+                                        </ul>
+                                    </small></small>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-1"></div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div id="wExpID"></div>
+    <br><br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="sectionTitle title col">
+                <h2>Work Experience</h2>
+                <!--Text :) -->>>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+
+            </div>
+            <div class="cardText col-10">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">1 </h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                </div>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">2</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                </div>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">3</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                </div>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">4</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                </div>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">5</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                </div>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-1">
 
             </div>
 
@@ -166,43 +330,13 @@
         </div>
 
 
-        
-        <div id = "wExpID" ></div>
-        <br><br><br>
-
-        <div class = "container">
-            <div class = "row">
-                <div class = "col-1"></div>
-                <div class = "sectionTitle title col">
-                    <h2>Work Experience</h2>
-                    <!--Text :) -->>> 
-                </div>
-            </div>
-            <div class = "row">
-                
-                               
-                <div class = "col-1"></div>
-                <div class = "cardText col-10">
-                    <div class = "row">
-                        <div class = "col solidCard"></div>
-                        <div class = "col solidCard"></div>
-                        <div class = "col solidCard"></div>
-
-                    </div>
-                </div>
-                <div class = "col-1"></div>
-                
-
-            </div>
+    </div>
 
 
-        </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-    </body>
+</body>
 
 
 </html>
