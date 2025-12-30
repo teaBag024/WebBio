@@ -19,7 +19,7 @@ const AboutMeIcons = () => {
                 <FontAwesomeIcon icon={['fab', 'github']} />
             </a>
             <a className="fa fa-envelope" href="mailto:lxz230006@utdallas.edu">
-                <FontAwesomeIcon icon={['fa', 'envelope']} />
+                <FontAwesomeIcon icon={['fas', 'envelope']} />
             </a>
             <a className="fab fa-instagram"
                href="https://www.instagram.com/lilac_a_doodle?igsh=Y2IzeXM3end5eGZl">
