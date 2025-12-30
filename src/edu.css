@@ -1,0 +1,25 @@
+#myedu{
+    background: var(--AccentGreen);
+
+}
+#myedu .cardText {
+    color: var(--bgGreen);
+}
+
+#myedu .sectionTitle,
+#myedu .cardText div {
+    text-shadow: 1px 1px 2px var(--DarkOrange);
+}
+@media (min-width: 576px) {
+    #classesUTD{
+        height: 300px;
+        align-content: flex-start;
+    }
+
+}
+#classesUTD {
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-content: flex-start;
+}

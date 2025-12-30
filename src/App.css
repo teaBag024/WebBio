@@ -1,0 +1,178 @@
+/*
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+*/
+
+:root {
+    --bgGreen: #94a194;
+    --AccentGreen: #233323;
+    --AccentOrange: #bf7934;
+    --LightOrange: #e6b789;
+    --DarkOrange: #5c4a38;
+    --white: #f9faf7;
+}
+
+::selection {
+    color: var(--AccentGreen);
+    background: var(--LightOrange);
+
+    text-shadow: none;
+}
+
+
+body {
+    background: var(--bgGreen);
+    margin: -1%;
+
+    overflow-x: hidden;
+}
+
+span {
+    padding-left: 20px;
+}
+
+
+
+
+#startCardsID {
+    margin-bottom: 10vh;
+}
+
+
+
+#navID {
+    background: var(--white);
+    border-radius: 5px;
+
+    box-shadow: 1px 2px 5px 1px var(--AccentGreen);
+    color: var(--DarkOrange);
+
+    position: sticky;
+    z-index: 100;
+    top: 0px;
+}
+
+#navID a:hover {
+    color: var(--AccentOrange);
+}
+
+.navItem {
+    color: var(--DarkOrange);
+}
+
+
+.title {
+    color: var(--DarkOrange);
+}
+
+.title h1 {
+    text-align: center;
+}
+.title h2{
+
+    margin-top: 100px;
+}
+
+.imgContainer {
+    width: 90%;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.cardText {
+    color: var(--DarkOrange);
+
+    display: inline-block;
+    padding: 5px 30px;
+
+    vertical-align: bottom;
+}
+
+.sectionTitle,
+.cardText div {
+    color: var(--white);
+    text-shadow: 1px 1px 2px var(--AccentGreen);
+}
+
+.solidCard {
+    background: var(--white);
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px 1px var(--AccentGreen);
+
+    vertical-align: top;
+}
+
+.solidCard div {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.solidCard div a {
+    color: var(--DarkOrange);
+    text-decoration: none;
+
+    font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.solidCard div a:hover {
+    color: var(--AccentOrange);
+}
+
+
+.cardContainer{
+    padding: 10px;
+}
+
+@media (min-width: 576px) {
+    #classesUTD{
+        height: 300px;
+        align-content: flex-start;
+    }
+
+}
+#classesUTD {
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-content: flex-start;
+}
